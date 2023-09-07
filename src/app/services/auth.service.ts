@@ -8,17 +8,17 @@ export class AuthService {
   setLoggedInUserName(userName: any) {
     throw new Error('Method not implemented.');
   }
-  private apiUrl = 'https://backend-libros.onrender.com/api'; 
+  private apiUrl = 'https://backend-organizado-libros.onrender.com/api'; 
 
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
     const data = { email, password };
-    return this.http.post<any>(`${this.apiUrl}/login`, data);
+    return this.http.post<any>(`${this.apiUrl}/auth/login`, data);
   }
 
   register(username: string, email: string, password: string) {
     const data = { username, email, password };
-    return this.http.post<any>(`${this.apiUrl}/register`, data);
+    return this.http.post<any>(`${this.apiUrl}/auth/register`, data);
   }
 }
